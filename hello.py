@@ -1,5 +1,7 @@
 from datetime import datetime
 import jinja2
+import os
+
 from flask import Flask, Blueprint, url_for, render_template, current_app
 
 bp = Blueprint('bp', __name__, url_prefix='/example')
@@ -24,9 +26,9 @@ def date_example():
     return render_template('date_example.html', created_at='Tue Mar 21 15:50:59 +0000 2017')
 
 
-@bp.route('/count/<int:n>')
-def count(n):
-    return '!'*n
+@bp.route('/secret')
+def secret():
+    return os.environ['TAJNY_KOD']
 
 
 @bp.app_template_filter('time')
