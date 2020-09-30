@@ -28,7 +28,7 @@ def date_example():
 
 @bp.route('/secret')
 def secret():
-    return os.environ['TAJNY_KOD']
+    return 'Secrets are secret!'
 
 
 @bp.app_template_filter('time')
